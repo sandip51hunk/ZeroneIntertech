@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.intro{
+  background: linear-gradient(180deg, #E9EDFB 0%, rgba(233, 237, 251, 0) 100%);
+}
+.about-us{
+  background: #F6F7FB;
+}
+.network{
+  background: #E9EDFB;
+}
+footer{
+  background: #F6F7FB;
+}
+.app-store{
+  background: #FDEDED;
+}
+
+.padding-all{
+  padding:"120px"
+}
+
+
+/* Carrier */
+.carrier_reason{
+
+background: #F6F7FB;
+border-radius: 8px;
+}

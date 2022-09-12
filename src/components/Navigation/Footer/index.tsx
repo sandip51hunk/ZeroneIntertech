@@ -1,27 +1,39 @@
 import React from "react";
 
 function Footer() {
+  let Logo = require("../../../assets/images/mainImage.png");
+
   return (
     <footer className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <img src="" alt="hero" />
-            <span className="ml-3 text-xl">LoadNepal</span>
+            <img src={Logo} alt="hero" />
+            <span className="ml-3 text-xl">
+              <span style={{ color: "#274AD8" }}>Load</span>
+              <span style={{ color: "#EC4A47" }}>Nepal</span>
+            </span>
           </a>
-          <nav className="list-none mb-10">
-            <h1>LoadNepal</h1>
+          <nav className="list-none mt-3 mb-10">
+            <h1 className="title-font font-medium text-gray-900">
+              LoadNepal
+            </h1>
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Butwal-8 Ruphendihi, Nepal</a>
+              <a className="text-gray-600 hover:text-gray-800">
+                Butwal-8 Ruphendihi, Nepal
+              </a>
             </li>
-           
+
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Phone : +977 9860112638</a>
+              <a className="text-gray-600 hover:text-gray-800">
+                Phone : +977 9860112638
+              </a>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-gray-800">Email : Sabin007.maharjan@gmail.com</a>
+              <a className="text-gray-600 hover:text-gray-800">
+                Email : Sabin007.mhzn@gmail.com
+              </a>
             </li>
-           
           </nav>
         </div>
         <div className="flex-grow flex flex-wrap  justify-end  md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -69,6 +81,7 @@ function Footer() {
           </div>
         </div>
       </div>
+      <hr />
       <div className="bg-gray-100">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-gray-500 text-sm text-center sm:text-left">
