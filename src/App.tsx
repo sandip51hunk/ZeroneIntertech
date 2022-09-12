@@ -1,16 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Home } from './pages/Home/Home';
+import React from "react";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
+import Footer from "./components/Navigation/Footer";
+import { Header } from "./components/Navigation/Header/Header";
+import { About, Contact, Intro, Network, Shippers } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <Router>
-        <Routes>
+    <div className="App px-10 mx-10">
+      <Header />
+      <Intro />
+      <About />
 
-        </Routes>
-      </Router>
+      <Network />
+      <Contact />
+      {/* <Shippers /> */}
+      <Footer />
     </div>
   );
 }
