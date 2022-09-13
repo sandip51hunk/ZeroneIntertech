@@ -17,11 +17,11 @@ export const Header = () => {
           </span>
         </a>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">Home</a>
-          <a className="mr-5 hover:text-gray-900">About</a>
-          <a className="mr-5 hover:text-gray-900">Shippers</a>
-          <a className="mr-5 hover:text-gray-900">Carriers</a>
-          <a className="mr-5 hover:text-gray-900">Contact</a>
+          <a className="mr-5 hover:text-gray-900" >Home</a>
+          <a className="mr-5 hover:text-gray-900"onClick={() => window.location.replace("/#about")}>About</a>
+          <a className="mr-5 hover:text-gray-900" onClick={() => window.location.replace("/#shippers")}>Shippers</a>
+          <a className="mr-5 hover:text-gray-900"onClick={() => window.location.replace("/#carriers")}>Carriers</a>
+          <a className="mr-5 hover:text-gray-900"onClick={() => window.location.replace("/#contact")}>Contact</a>
         </nav>
         <button 
           onClick={() => navigate("/register")}
