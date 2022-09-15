@@ -1,17 +1,16 @@
-import React, {  useState } from "react";
-import { Header } from "../../components/Navigation/Header/Header";
+import React, { useState } from "react";
+import DashboardHeader from "../../components/Navigation/Header/DashboardHeader";
+import Sidebar from "../../components/Sidebar";
 
 const MainLayout = ({ children }: any) => {
-  const [response, setResponse] = useState<any>();
-
   return (
     <>
       <div>
-        <Header />
-        {/* <Sidebar /> */}
+        <DashboardHeader />
+        <Sidebar />
       </div>
 
-      {children}
+      <div className={"admin__main__content__left__side"}>{children}</div>
     </>
   );
 };

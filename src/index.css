@@ -46,3 +46,142 @@ border-radius: 8px;
   position: relative;
   bottom: 200px;
 }
+
+
+/* Dashboard */
+
+.flex__justify__btwn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.sidebar__container {
+	background-color: #FFFF;
+	width: 223px;
+	position: fixed;
+	top: 0%;
+	right: 0;
+	left: 0;
+	bottom: 0%;
+	scroll-behavior: smooth;
+	height: 100vh;
+	box-shadow: 1px 0px 4px -5px rgba(0, 0, 0, 0.49);
+	-webkit-box-shadow: 1px 0px 4px -5px rgba(0, 0, 0, 0.49);
+	-moz-box-shadow: 1px 0px 4px -5px rgba(0, 0, 0, 0.49);
+	/* / overflow-y: scroll; / */
+}
+.flex__column {
+	display: flex;
+	flex-direction: column;
+}
+.sidebar__logo {
+	width: 200px;
+	padding: 5px;
+	background-color: #fff !important;
+	border-radius: 8px;
+	margin: 15px auto;
+}
+
+.sidebar__logo > img {
+	width: 30%;
+	height: auto;
+}
+.sidebar__list {
+	color: #274AD8;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	margin: 0 5px 5px 5px;
+	border-radius: 5px;
+	transition: all 0.2s ease-in-out;
+}
+.sidebar__list:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #ffffff;
+}
+
+.sidebar__list__text {
+	margin-left: 12px;
+	font-size: 14px;
+	text-transform: capitalize;
+}
+
+.navbar__container {
+	padding: 0 20px;
+	background-color: #ffffffff;
+	margin-bottom: 20px;
+	margin-left: 224px;
+}
+.profile__container {
+	position: relative;
+	display: inline-block;
+	padding: 20px 0;
+}
+.navbar__dropdown {
+	top: 4em;
+	position: absolute;
+	right: 0em;
+	padding: 10px 15px;
+	z-index: 9999;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: none;
+}
+.notification__block{
+	top: 4em;
+	position: absolute;
+	right: 0em;
+	padding: 10px 15px;
+	z-index: 9999;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: none;
+
+}
+
+
+.navbar__dropdown__block {
+	top: 4em;
+	position: absolute;
+	right: 0em;
+	padding: 10px 15px;
+	z-index: 9999;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: block;
+}
+/* .profile__container:hover .navbar__dropdown {
+	display: block;
+} */
+
+.admin_image {
+	margin-left: 7px;
+	cursor: pointer;
+	/* display: inline-block; */
+}
+.profile__text {
+	font-weight: 600;
+	font-size: 16px;
+}
+/* .profile__container:hover .navbar__dropdown {
+	display: block;
+} */
+.navbar__dropdown-list {
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 10px 10px;
+	text-align: left;
+	min-width: 160px;
+}
+.navbar__dropdown-list:hover {
+	color: black;
+	border-radius: 5px;
+}
+.admin__main__content__left__side {
+	padding-left: 223px;
+	min-height: 573px;
+  background-color: #F6F7FB;
+}
+
+
