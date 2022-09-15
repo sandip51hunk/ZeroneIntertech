@@ -15,7 +15,7 @@ import {
 import { RiListSettingsFill, RiVisaFill } from "react-icons/ri";
 import { GrTechnology } from "react-icons/gr";
 
-const SideBar = ({ responsive, setResponsive }: any) => { 
+const SideBar = ({ responsive, setResponsive }: any) => {
   const [accordin, setAccordin] = React.useState<boolean>(false);
   const [response, setResponse] = React.useState<any>();
 
@@ -71,6 +71,11 @@ const SideBar = ({ responsive, setResponsive }: any) => {
           <span className={`${"sidebar__list__text"}`}>{e.title}</span>
         </NavLink>
       ))}
+      <NavLink to={"/support"} className="flex items-center sidebar__list" style={{marginTop:'200px'}}>
+        <FaUserLock size={20} />
+
+        <span className={`${"sidebar__list__text"}`}>Support</span>
+      </NavLink>
     </div>
   );
 };

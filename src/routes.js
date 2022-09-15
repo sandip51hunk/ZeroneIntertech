@@ -12,6 +12,7 @@ import AcceptedRequest from "./pages/Dashboard/components/Request/AcceptedReques
 import PendingRequest from "./pages/Dashboard/components/Request/PendingRequest";
 import ShippedLoad from "./pages/Dashboard/components/Request/ShippedLoad";
 import LoadDetails from "./pages/Dashboard/MyLoad/component/LoadDetails";
+import Support from "./pages/Dashboard/Support";
 
 const RouteObj = [
   {
@@ -72,6 +73,12 @@ const RouteObj = [
     path: "/load-details",
     component: LoadDetails,
   },
+
+//Support
+{
+  path: "/support",
+  component: Support,
+},
 
 ];
 
