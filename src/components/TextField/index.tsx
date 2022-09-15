@@ -69,7 +69,7 @@ const TextField = ({
         )}
       </div>
       {meta.touched && meta.error ? (
-        <div className="input__error__icon">
+        <div className="input__error__icon mt-1">
           <RiErrorWarningFill />
         </div>
       ) : (

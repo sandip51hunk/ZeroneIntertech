@@ -8,6 +8,10 @@ import Transaction from "./pages/Dashboard/Transaction";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import ChangePassword from "./pages/Dashboard/components/ChangePassword";
 import MyDetails from "./pages/Dashboard/components/MyDetails";
+import AcceptedRequest from "./pages/Dashboard/components/Request/AcceptedRequest";
+import PendingRequest from "./pages/Dashboard/components/Request/PendingRequest";
+import ShippedLoad from "./pages/Dashboard/components/Request/ShippedLoad";
+import LoadDetails from "./pages/Dashboard/MyLoad/component/LoadDetails";
 
 const RouteObj = [
   {
@@ -22,6 +26,8 @@ const RouteObj = [
     path: "/register",
     component: Register,
   },
+  //dashboard routes
+
   {
     path: "/dashboard",
     component: Dashboard,
@@ -38,6 +44,7 @@ const RouteObj = [
     path: "/transaction",
     component: Transaction,
   },
+  //nav routes
   {
     path: "/change-password",
     component: ChangePassword,
@@ -46,6 +53,26 @@ const RouteObj = [
     path: "/my-details",
     component: MyDetails,
   },
+  //Request routes
+  {
+    path: "/accepted-request",
+    component: AcceptedRequest,
+  },
+  {
+    path: "/pending-request",
+    component: PendingRequest,
+  },
+  {
+    path: "/shipped-load",
+    component: ShippedLoad,
+  },
+
+  //my load routes
+  {
+    path: "/load-details",
+    component: LoadDetails,
+  },
+
 ];
 
 export default RouteObj;

@@ -5,37 +5,23 @@ import MainLayout from "../../container/dashboardLayout";
 
 export const Dashboard = () => {
   //Line CHart
-  const [data, setData] = useState({
-    labels: ["12 am", "1 am", "2 am", "3 am", "4 am", "5 am", "6 am", "7 am"],
-
-    datasets: [
-      {
-        label: "No. of pageViews",
-        data: [1700, 1420, 1300, 1392, 1800, 1500, 2200, 400],
-        backgroundColor: "transparent",
-        borderColor: "red",
-        tension: 0.4,
-        fill: true,
-        pointStyle: "rect",
-        pointBorderColor: "blue",
-        pointBackgroundColor: "#fff",
-        showLine: true,
-      },
-      {
-        label: "No. of Unique Users",
-        data: [1000, 820, 700, 900, 1200, 1100, 1500, 300],
-        borderColor: "blue",
-        backgroundColor: "transparent",
-        tension: 0.4,
-        fill: true,
-        pointStyle: "rect",
-        pointBorderColor: "blue",
-        pointBackgroundColor: "#fff",
-        showLine: true,
-      },
-    ],
-  });
-
+ 
+const data = {
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  datasets: [
+    {
+      data: [33, 53, 85, 41, 44, 65],
+      fill: true,
+      backgroundColor: "rgba(75,192,192,0.2)",
+      borderColor: "rgba(75,192,192,1)"
+    },
+    {
+      data: [33, 25, 35, 51, 54, 76],
+      fill: false,
+      borderColor: "#742774"
+    }
+  ]
+};
   return (
     <MainLayout>
       <section>

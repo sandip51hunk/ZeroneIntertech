@@ -127,7 +127,7 @@ border-radius: 8px;
 	border-radius: 5px;
 	display: none;
 }
-.notification__block{
+.notification{
 	top: 4em;
 	position: absolute;
 	right: 0em;
@@ -136,11 +136,23 @@ border-radius: 8px;
 	background-color: #ffffff;
 	border-radius: 5px;
 	display: none;
+	width: 460px;
+height: 424px;
 
 }
 
 
 .navbar__dropdown__block {
+	top: 4em;
+	position: absolute;
+	right: 0em;
+	padding: 10px 15px;
+	z-index: 9999;
+	background-color: #ffffff;
+	border-radius: 5px;
+	display: block;
+}
+.notification__block {
 	top: 4em;
 	position: absolute;
 	right: 0em;
@@ -184,4 +196,21 @@ border-radius: 8px;
   background-color: #F6F7FB;
 }
 
+/* Textfield */
+.input__error__container {
+	background-color: #e4655f;
+	color: #fff;
+	margin-top: 3px;
+	font-size: 12px;
+	padding: 2px 2px 2px 23px;
+	display: inline-block;
+	margin-bottom: 0 !important;
+}
+.input__error__icon {
+	position: absolute;
+	z-index: 222;
+	display: inline;
+	color: #ffffffff;
+	margin-left: 2px;
+}
 
