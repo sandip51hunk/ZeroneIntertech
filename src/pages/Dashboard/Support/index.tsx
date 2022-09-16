@@ -5,7 +5,7 @@ function Support() {
   return (
     <MainLayout>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container p-2">
           <div className="flex flex-wrap -m-4 p-8 ">
             <div className="p-4 mx-4   bg-white">
               <div className="h-full  px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -28,7 +28,7 @@ function Support() {
             <div className="p-4 mx-4   bg-white">
               <div className="h-full  px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                  Customer SUpport
+                  Shipper SUpport
                 </h1>
                 <p className="leading-relaxed mb-3">
                  Phone Number: 9860112638
@@ -46,7 +46,7 @@ function Support() {
             <div className="p-4 mx-4   bg-white">
               <div className="h-full  px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                  Customer SUpport
+                  Driver SUpport
                 </h1>
                 <p className="leading-relaxed mb-3">
                  Phone Number: 9860112638
@@ -116,7 +116,7 @@ function Support() {
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button className="w-full text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Send Message
           </button>
         </div>
