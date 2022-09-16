@@ -51,7 +51,7 @@ function AppStore() {
               </span>
             </button>
           </div>
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+          <h1 className="title-font sm:text-4xl text-3xl my-4  font-medium text-gray-900">
             Driver's App
           </h1>
           <div className="flex lg:flex-row md:flex-col">
@@ -88,14 +88,15 @@ function AppStore() {
             </button>
           </div>
         </div>
-        <div className="lg:max-w-lg flex lg:w-full md:w-1/2 w-5/6">
+        <div className="lg:max-w-lg flex lg:w-full md:w-1/2 w-5/6 relative">
         <img
-            className="object-cover object-center rounded"
+            className="object-cover object-center rounded z-10"
             alt="hero"
             src={leftMob}
           />
           <img
-            className="object-cover object-center rounded"
+            className="object-cover object-center rounded absolute bottom-1/4 z-0"
+            style={{right:'64px'}} 
             alt="hero"
             src={rightMob}
           />

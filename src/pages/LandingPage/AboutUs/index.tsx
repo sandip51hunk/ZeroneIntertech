@@ -5,15 +5,17 @@ function index() {
   let Logo = require("../../../assets/images/aboutus.png");
 
   return (
-    <section id='about' className="text-gray-600 body-font about-us">
+    <section id="about" className="text-gray-600 body-font about-us">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 about__image flex justify-end">
+        <div className="lg:max-w-lg    md:w-1/2 w-5/6 mb-10 md:mb-0 about__image flex justify-end relative">
           <img
-            className="object-cover object-center rounded  "
+            className="object-cover object-center  rounded  "
             alt="hero"
             src={Logo}
           />
-          <div className="bg-blue-700 text-white">Moving Nepal Smoothly</div>
+          <div className="w-64 bg-blue-700 text-white h-32 p-6 text-3xl absolute bottom-0 left-1/2 " >
+            Moving Nepal Smoothly
+          </div>
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
@@ -31,9 +33,8 @@ function index() {
           <div className="">
             <h3 className="title-font sm:text-2xl text-3xl mb-4 font-medium text-gray-900">
               Vision
-            </h3> 
+            </h3>
             <p className="mb-8 leading-relaxed">
-
               We aspire to unite Nepal by creating a collaborative and
               harmonious network where stakeholders will work together to build
               a sector which, contrary to its present-day state, will be known
