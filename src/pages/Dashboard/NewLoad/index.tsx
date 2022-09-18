@@ -3,7 +3,17 @@ import React from "react";
 import { SeachableDropDown } from "../../../components/SearchableDropdown";
 import TextField from "../../../components/TextField";
 import MainLayout from "../../../container/dashboardLayout";
+import * as Yup from "yup";
 
+
+
+const Form_validation = Yup.object().shape({
+  name: Yup.string()
+    .required("name is Required"),
+  password: Yup.string()
+    .min(6, "Name must be atleat 6 character long.")
+    .required(" Password is Required"),
+});
 function NewLoad() {
   const counterList = [
     {
@@ -11,12 +21,30 @@ function NewLoad() {
       value: "100",
     },
   ];
+  const initVal = {
+    loadingPoint:'',
+    loadingTime:'',
+    unloadingPoint:'',
+    contactNumber:'',
+    contactName:'',
+    truckBody:'',
+    truckCapacity:'',
+    truckFeet:'',
+    truckNumber:'',
+    goodTransport:'',
+    additionalInfo:'',
+    approximateWeight:'',
+    proposedRate:'',
+    paymentMethod:'',
+    name:'',
+    address:'',
+  }
 
   return (
     <MainLayout>
       <Formik
-        initialValues={{}}
-        // validationSchema={FORM_VALIDATION}
+        initialValues={initVal}
+        validationSchema={Form_validation}
         onSubmit={(val) => console.log(val)}
       >
         {({ isSubmitting, values, setFieldValue, errors, touched }: any) => (
@@ -232,6 +260,7 @@ function NewLoad() {
                   />
                 </div>
               </div>
+              <button type="submit">Create load request</button>
             </Form>
           </>
         )}
