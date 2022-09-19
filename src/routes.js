@@ -13,6 +13,8 @@ import PendingRequest from "./pages/Dashboard/components/Request/PendingRequest"
 import ShippedLoad from "./pages/Dashboard/components/Request/ShippedLoad";
 import LoadDetails from "./pages/Dashboard/MyLoad/component/LoadDetails";
 import Support from "./pages/Dashboard/Support";
+import TermsConditions from "./pages/LandingPage/TermsConditions";
+import PrivacyPolicies from "./pages/LandingPage/PrivacyPolicies";
 
 const RouteObj = [
   {
@@ -79,7 +81,15 @@ const RouteObj = [
   path: "/support",
   component: Support,
 },
-
+//terms & condition
+{
+  path: "/terms-conditions",
+  component: TermsConditions,
+},
+{
+  path: "/privacy-policies",
+  component: PrivacyPolicies,
+},
 ];
 
 export default RouteObj;

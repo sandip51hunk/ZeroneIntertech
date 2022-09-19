@@ -9,7 +9,7 @@ interface Option {
 }
 
 interface CustomSelectProps extends FieldProps {
-  options: OptionsType<Option>;
+  options?: OptionsType<Option>;
   isMulti?: boolean;
   className?: string;
   placeholder?: string;
@@ -29,7 +29,7 @@ export const SeachableDropDown = ({
     form.setFieldValue(
       field.name,
       isMulti
-        ? (option as Option[]).map((item: Option) => item.value)
+        ? (option as Option[])?.map((item: Option) => item.value)
         : (option as Option).value
     );
   };

@@ -59,8 +59,8 @@ function NewLoad() {
                   <TextField
                     label="Loading Point"
                     type="text"
-                    placeholder="loadinfd"
-                    name="name"
+                    placeholder="loadingPoint"
+                    name="loadingPoint"
                   />
                 </div>
                 <div>
@@ -68,8 +68,8 @@ function NewLoad() {
                   <TextField
                     label="Loading Date and Time"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="loadingTime"
+                    name="loadingTime"
                   />
                 </div>
               </div>
@@ -83,8 +83,8 @@ function NewLoad() {
                   <TextField
                     label="Unloading Point"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="unloadingPoint"
+                    name="unloadingPoint"
                   />
                 </div>
                 <div>
@@ -92,8 +92,8 @@ function NewLoad() {
                   <TextField
                     label="Contact Number"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="Contact Number"
+                    name="contactNumber"
                   />
                 </div>
                 <div>
@@ -101,8 +101,8 @@ function NewLoad() {
                   <TextField
                     label="Contact Name"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="Contact Name"
+                    name="contactName"
                   />
                 </div>
               </div>
@@ -110,14 +110,14 @@ function NewLoad() {
                 Truck Details
               </h2>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-x-4">
                 <div>
                   {" "}
                   <TextField
                     label="Truck Body"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="Truck Body"
+                    name="truckBody"
                   />
                 </div>
                 <div>
@@ -246,8 +246,8 @@ function NewLoad() {
                   <TextField
                     label="PAN (Optional)"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="PAN"
+                    name="pan"
                   />
                 </div>
                 <div>
@@ -255,8 +255,8 @@ function NewLoad() {
                   <TextField
                     label="Address"
                     type="text"
-                    placeholder="Name"
-                    name="name"
+                    placeholder="Address"
+                    name="address"
                   />
                 </div>
               </div>

@@ -1,27 +1,109 @@
 import React, { useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import { BsTruck } from "react-icons/bs";
 import MainLayout from "../../container/dashboardLayout";
+import {
+  Chart as ChartJS,
+  LinearScale,
+  LineElement,
+  Title,
+  Tooltip,
+  BarElement,
+  Legend,
+  CategoryScale,
+  PointElement,
+} from "chart.js";
 
 export const Dashboard = () => {
   //Line CHart
- 
-const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  datasets: [
-    {
-      data: [33, 53, 85, 41, 44, 65],
-      fill: true,
-      backgroundColor: "rgba(75,192,192,0.2)",
-      borderColor: "rgba(75,192,192,1)"
+
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+
+        // position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "Trip requests (monthly)",
+      },
     },
-    {
-      data: [33, 25, 35, 51, 54, 76],
-      fill: false,
-      borderColor: "#742774"
-    }
-  ]
-};
+  };
+  const data1 = {
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    datasets: [
+      {
+        data: [33, 53, 85, 41, 44, 65, 12, 12, 32, 34, 34, 23],
+        fill: true,
+        backgroundColor: "#EC4A47",
+        borderColor: "rgba(75,192,192,1)",
+      },
+    ],
+  };
+  const options1 = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+
+        // position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "Transcation (in Lakhs)",
+      },
+    },
+  };
+  const data = {
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    datasets: [
+      {
+        label: "",
+        data: [33, 53, 85, 41, 44, 65, 12, 12, 32, 34, 34, 23],
+        fill: true,
+        backgroundColor: " linear-gradient(#274AD8, #274AD8)",
+        borderColor: "rgba(75,192,192,1)",
+      },
+    ],
+  };
   return (
     <MainLayout>
       <section>
@@ -35,7 +117,7 @@ const data = {
 
         <div>
           <section className="text-gray-600 body-font px-14">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 py-8 mx-auto">
               <div className="flex flex-wrap  -mx-4 -my-8">
                 <div className="py-8 px-4 mx-4 bg-white bg-opacity-75 rounded-lg	 w-96">
                   <div className="h-full   flex items-start">
@@ -52,7 +134,7 @@ const data = {
                     </div>
                   </div>
                 </div>
-                <div className="py-8 px-4 mx-4 bg-white bg-opacity-75 rounded-lg	 w-96">
+                <div className="py-8 px-4  bg-white bg-opacity-75 rounded-lg	 w-96">
                   <div className="h-full    flex items-start">
                     <div className="w-12 flex-shrink-0 flex flex-col text-center leading-none">
                       <BsTruck color="#EC4A47" size={40} />
@@ -86,11 +168,17 @@ const data = {
             </div>
           </section>
         </div>
-        <div>
-          {" "}
-          {/* <Line data={data} /> */}
+        <div className="p-4">
+          <div className="bg-white">
+            {" "}
+            <Line options={options} data={data} />
+          </div>
         </div>
-        <div></div>
+        <div className="p-4">
+          <div className="bg-white">
+            <Bar options={options1} data={data1} />;
+          </div>
+        </div>
       </section>
     </MainLayout>
   );
