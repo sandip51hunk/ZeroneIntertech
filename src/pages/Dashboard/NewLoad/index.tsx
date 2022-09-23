@@ -1,44 +1,61 @@
-import { Field, Form, Formik } from "formik";
-import React from "react";
-import { SeachableDropDown } from "../../../components/SearchableDropdown";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+// import { SeachableDropDown } from "../../../components/SearchableDropdown";
 import TextField from "../../../components/TextField";
 import MainLayout from "../../../container/dashboardLayout";
 import * as Yup from "yup";
-
-
+import Select from "react-select";
+import { RiErrorWarningFill } from "react-icons/ri";
 
 const Form_validation = Yup.object().shape({
-  name: Yup.string()
-    .required("name is Required"),
+  name: Yup.string().required("name is Required"),
+  address: Yup.string().required("address is Required"),
+  loadingPoint: Yup.string().required("loadingPoint is Required"),
+  unloadingPoint: Yup.string().required("unloadingPoint is Required"),
+  loadingTime: Yup.string().required("loadingTime is Required"),
+  contactNumber: Yup.string().required("contactNumber is Required"),
+  payment: Yup.string().required("payment is Required"),
+  truckBody: Yup.string().required("truckBody is Required"),
+  truckFeet: Yup.string().required("truckFeet is Required"),
+  goodTransport: Yup.string().required("goodTransport is Required"),
+  additionalInfo: Yup.string().required("additionalInfo is Required"),
+  proposedRate: Yup.string().required("proposedRate is Required"),
+  contactName: Yup.string().required("contactName is Required"),
   password: Yup.string()
     .min(6, "Name must be atleat 6 character long.")
     .required(" Password is Required"),
 });
 function NewLoad() {
+  const [selectedOption, setSelectedOption] = useState<any>("");
   const counterList = [
     {
       label: "sabin",
       value: "100",
     },
+    {
+      label: "anish",
+      value: "100",
+    },
   ];
   const initVal = {
-    loadingPoint:'',
-    loadingTime:'',
-    unloadingPoint:'',
-    contactNumber:'',
-    contactName:'',
-    truckBody:'',
-    truckCapacity:'',
-    truckFeet:'',
-    truckNumber:'',
-    goodTransport:'',
-    additionalInfo:'',
-    approximateWeight:'',
-    proposedRate:'',
-    paymentMethod:'',
-    name:'',
-    address:'',
-  }
+    loadingPoint: "",
+    loadingTime: "",
+    unloadingPoint: "",
+    contactNumber: "",
+    contactName: "",
+    truckBody: "",
+    truckCapacity: "",
+    truckFeet: "",
+    truckNumber: "",
+    goodTransport: "",
+    additionalInfo: "",
+    approximateWeight: "",
+    proposedRate: "",
+    paymentMethod: "",
+    name: "",
+    address: "",
+    payment: "",
+  };
 
   return (
     <MainLayout>
@@ -49,6 +66,7 @@ function NewLoad() {
       >
         {({ isSubmitting, values, setFieldValue, errors, touched }: any) => (
           <>
+            {console.log(errors)}
             <Form className="p-10">
               <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
                 Loading Details
@@ -113,38 +131,101 @@ function NewLoad() {
               <div className="grid grid-cols-3 gap-x-4">
                 <div>
                   {" "}
-                  <TextField
-                    label="Truck Body"
-                    type="text"
-                    placeholder="Truck Body"
-                    name="truckBody"
+                  <label className="leading-7 text-sm text-gray-600">
+                    Truck Body
+                  </label>
+                  <Select
+                    value={selectedOption}
+                    onChange={setSelectedOption}
+                    options={counterList}
+                    placeholder="Choose an Option"
+                  />
+                  {touched.payment && errors.payment ? (
+                    <div className="input__error__icon mt-1">
+                      <RiErrorWarningFill />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <ErrorMessage
+                    component="div"
+                    name="payment"
+                    className="input__error__container mb-3"
                   />
                 </div>
                 <div>
                   {" "}
-                  <TextField
-                    label="Name"
-                    type="text"
-                    placeholder="Name"
-                    name="name"
+                  <label className="leading-7 text-sm text-gray-600">
+                    Truck Capacity
+                  </label>
+                  <Select
+                    value={selectedOption}
+                    onChange={setSelectedOption}
+                    options={counterList}
+                    placeholder="Choose an Option"
+                    name="payment"
+                  />
+                  {touched.payment && errors.payment ? (
+                    <div className="input__error__icon mt-1">
+                      <RiErrorWarningFill />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <ErrorMessage
+                    component="div"
+                    name="payment"
+                    className="input__error__container mb-3"
                   />
                 </div>
                 <div>
                   {" "}
-                  <TextField
-                    label="Name"
-                    type="text"
-                    placeholder="Name"
-                    name="name"
+                  <label className="leading-7 text-sm text-gray-600">
+                    Truck feet or wheels
+                  </label>
+                  <Select
+                    value={selectedOption}
+                    onChange={setSelectedOption}
+                    options={counterList}
+                    placeholder="Choose an Option"
+                    name="payment"
+                  />
+                  {touched.payment && errors.payment ? (
+                    <div className="input__error__icon mt-1">
+                      <RiErrorWarningFill />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <ErrorMessage
+                    component="div"
+                    name="payment"
+                    className="input__error__container mb-3"
                   />
                 </div>
-                <div>
+                <div className="my-4">
                   {" "}
-                  <TextField
-                    label="Name"
-                    type="text"
-                    placeholder="Name"
-                    name="name"
+                  <label className="leading-7 text-sm text-gray-600">
+                    Truck Numbers
+                  </label>
+                  <Select
+                    value={selectedOption}
+                    onChange={setSelectedOption}
+                    options={counterList}
+                    placeholder="Choose an Option"
+                    name="payment"
+                  />
+                  {touched.payment && errors.payment ? (
+                    <div className="input__error__icon mt-1">
+                      <RiErrorWarningFill />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <ErrorMessage
+                    component="div"
+                    name="payment"
+                    className="input__error__container mb-3"
                   />
                 </div>
               </div>
@@ -196,20 +277,28 @@ function NewLoad() {
                   />
                 </div>
                 <div>
-                  <TextField
-                    label="Advance in % (min 50)"
-                    type="text"
-                    placeholder="Name"
-                    name="name"
-                  />
-                </div>
-                <div>
                   {" "}
-                  <TextField
-                    label="Advance in % (min 50)"
-                    type="text"
-                    placeholder="Name"
-                    name="name"
+                  <label className="leading-7 text-sm text-gray-600">
+                    Payment method
+                  </label>
+                  <Select
+                    value={selectedOption}
+                    onChange={setSelectedOption}
+                    options={counterList}
+                    placeholder="Choose an Option"
+                    name="payment"
+                  />
+                  {touched.payment && errors.payment ? (
+                    <div className="input__error__icon mt-1">
+                      <RiErrorWarningFill />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <ErrorMessage
+                    component="div"
+                    name="payment"
+                    className="input__error__container mb-3"
                   />
                 </div>
               </div>
@@ -260,7 +349,15 @@ function NewLoad() {
                   />
                 </div>
               </div>
-              <button type="submit">Create load request</button>
+              <div className="grid grid-cols-3 gap-x-4 mt-8">
+                <button className="border-2 text-gray-700">Clear</button>
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Create load request
+                </button>
+              </div>
             </Form>
           </>
         )}
