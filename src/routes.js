@@ -15,6 +15,7 @@ import LoadDetails from "./pages/Dashboard/MyLoad/component/LoadDetails";
 import Support from "./pages/Dashboard/Support";
 import TermsConditions from "./pages/LandingPage/TermsConditions";
 import PrivacyPolicies from "./pages/LandingPage/PrivacyPolicies";
+import FAQs from "./pages/LandingPage/FAQs";
 
 const RouteObj = [
   {
@@ -89,6 +90,10 @@ const RouteObj = [
 {
   path: "/privacy-policies",
   component: PrivacyPolicies,
+},
+{
+  path: "/faqs",
+  component: FAQs,
 },
 ];
 

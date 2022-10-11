@@ -1,11 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { SeachableDropDown } from "../../../components/SearchableDropdown";
 import TextField from "../../../components/TextField";
 import MainLayout from "../../../container/dashboardLayout";
 import * as Yup from "yup";
 import Select from "react-select";
 import { RiErrorWarningFill } from "react-icons/ri";
+import axios from "axios";
 
 const Form_validation = Yup.object().shape({
   name: Yup.string().required("name is Required"),
@@ -14,11 +15,16 @@ const Form_validation = Yup.object().shape({
   unloadingPoint: Yup.string().required("unloadingPoint is Required"),
   loadingTime: Yup.string().required("loadingTime is Required"),
   contactNumber: Yup.string().required("contactNumber is Required"),
-  payment: Yup.string().required("payment is Required"),
-  truckBody: Yup.string().required("truckBody is Required"),
-  truckFeet: Yup.string().required("truckFeet is Required"),
+  // payment: Yup.string().required("payment is Required"),
+  // truckBody: Yup.string().required("truckBody is Required"),
+  // truckCapacity: Yup.string().required("truckCapacity is Required"),
+  truckWheel: Yup.string().required("truckCapacityOfWheel is Required"),
+  // truckNumber: Yup.string().required("truckNumber is Required"),
   goodTransport: Yup.string().required("goodTransport is Required"),
   additionalInfo: Yup.string().required("additionalInfo is Required"),
+  approximateWeight: Yup.string().required(
+    "approximateWeightInTons is Required"
+  ),
   proposedRate: Yup.string().required("proposedRate is Required"),
   contactName: Yup.string().required("contactName is Required"),
   password: Yup.string()
@@ -27,6 +33,8 @@ const Form_validation = Yup.object().shape({
 });
 function NewLoad() {
   const [selectedOption, setSelectedOption] = useState<any>("");
+  const [post, setPost] = useState<any>("");
+
   const counterList = [
     {
       label: "sabin",
@@ -56,13 +64,46 @@ function NewLoad() {
     address: "",
     payment: "",
   };
+  const baseURL = "http://159.203.180.7:3000/api/loads";
 
+  const createPost = (val: any) => {
+    axios
+      .post(baseURL, {
+        shipperId: "1",
+        shipperName: "1",
+        panNumber: val.panNumber,
+        address: val.address,
+        loadingPoint: val.loadingPoint,
+        loadingDateTime: val.loadingTime,
+        unLoadingPoint: val.unLoadingpoint,
+        estimatedDistance: "10",
+        contactNumber: val.contactNumber,
+        contactName: val.contactName,
+        truckBody: val.truckBody,
+        truckCapacity: val.truckCapacity,
+        truckCapacityOfWheel: val.truckWheel,
+        truckNumber: val.truckNumber,
+        goodsToTransfer: val.goodTransport,
+        additionalInfo: val.additionalInfo,
+        approximateWeightInTons: val.approximateWeight,
+        proposedRatePerTruck: val.proposedRate,
+        paymentMethod: val.payment,
+        minAdvance: "100",
+        userId: "1",
+        agentId: "11",
+        status: "active",
+      })
+      .then((response) => {
+        setPost(response.data);
+      });
+  };
+  
   return (
     <MainLayout>
       <Formik
         initialValues={initVal}
         validationSchema={Form_validation}
-        onSubmit={(val) => console.log(val)}
+        onSubmit={createPost}
       >
         {({ isSubmitting, values, setFieldValue, errors, touched }: any) => (
           <>
@@ -135,12 +176,11 @@ function NewLoad() {
                     Truck Body
                   </label>
                   <Select
-                    value={selectedOption}
-                    onChange={setSelectedOption}
                     options={counterList}
                     placeholder="Choose an Option"
+                    name="truckBody"
                   />
-                  {touched.payment && errors.payment ? (
+                  {touched.truckBody && errors.truckBody ? (
                     <div className="input__error__icon mt-1">
                       <RiErrorWarningFill />
                     </div>
@@ -149,7 +189,7 @@ function NewLoad() {
                   )}
                   <ErrorMessage
                     component="div"
-                    name="payment"
+                    name="truckBody"
                     className="input__error__container mb-3"
                   />
                 </div>
@@ -159,13 +199,11 @@ function NewLoad() {
                     Truck Capacity
                   </label>
                   <Select
-                    value={selectedOption}
-                    onChange={setSelectedOption}
                     options={counterList}
                     placeholder="Choose an Option"
-                    name="payment"
+                    name="truckCapacity"
                   />
-                  {touched.payment && errors.payment ? (
+                  {touched.truckCapacity && errors.truckCapacity ? (
                     <div className="input__error__icon mt-1">
                       <RiErrorWarningFill />
                     </div>
@@ -174,7 +212,7 @@ function NewLoad() {
                   )}
                   <ErrorMessage
                     component="div"
-                    name="payment"
+                    name="truckCapacity"
                     className="input__error__container mb-3"
                   />
                 </div>
@@ -184,13 +222,11 @@ function NewLoad() {
                     Truck feet or wheels
                   </label>
                   <Select
-                    value={selectedOption}
-                    onChange={setSelectedOption}
                     options={counterList}
                     placeholder="Choose an Option"
-                    name="payment"
+                    name="truckWheel"
                   />
-                  {touched.payment && errors.payment ? (
+                  {touched.truckWheel && errors.truckWheel ? (
                     <div className="input__error__icon mt-1">
                       <RiErrorWarningFill />
                     </div>
@@ -199,7 +235,7 @@ function NewLoad() {
                   )}
                   <ErrorMessage
                     component="div"
-                    name="payment"
+                    name="truckWheel"
                     className="input__error__container mb-3"
                   />
                 </div>
@@ -209,13 +245,11 @@ function NewLoad() {
                     Truck Numbers
                   </label>
                   <Select
-                    value={selectedOption}
-                    onChange={setSelectedOption}
                     options={counterList}
                     placeholder="Choose an Option"
-                    name="payment"
+                    name="truckNumber"
                   />
-                  {touched.payment && errors.payment ? (
+                  {touched.truckNumber && errors.truckNumber ? (
                     <div className="input__error__icon mt-1">
                       <RiErrorWarningFill />
                     </div>
@@ -224,7 +258,7 @@ function NewLoad() {
                   )}
                   <ErrorMessage
                     component="div"
-                    name="payment"
+                    name="truckNumber"
                     className="input__error__container mb-3"
                   />
                 </div>
@@ -240,7 +274,7 @@ function NewLoad() {
                     label="Goods to transport"
                     type="text"
                     placeholder="Name"
-                    name="name"
+                    name="goodTransport"
                   />
                 </div>
                 <div>
@@ -249,7 +283,7 @@ function NewLoad() {
                     label="Additional Information"
                     type="text"
                     placeholder="Name"
-                    name="name"
+                    name="additionalInfo"
                   />
                 </div>
                 <div>
@@ -258,7 +292,7 @@ function NewLoad() {
                     label="Approximate weight(in tons)"
                     type="text"
                     placeholder="Name"
-                    name="name"
+                    name="approximateWeight"
                   />
                 </div>
               </div>
@@ -273,7 +307,7 @@ function NewLoad() {
                     label="Proposed rate per Truck"
                     type="text"
                     placeholder="Name"
-                    name="name"
+                    name="proposedRate"
                   />
                 </div>
                 <div>
@@ -282,8 +316,6 @@ function NewLoad() {
                     Payment method
                   </label>
                   <Select
-                    value={selectedOption}
-                    onChange={setSelectedOption}
                     options={counterList}
                     placeholder="Choose an Option"
                     name="payment"
@@ -353,6 +385,7 @@ function NewLoad() {
                 <button className="border-2 text-gray-700">Clear</button>
                 <button
                   type="submit"
+                  onClick={() => createPost(values)}
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Create load request
