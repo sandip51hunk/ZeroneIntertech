@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import Select from "react-select";
 import { RiErrorWarningFill } from "react-icons/ri";
 import axios from "axios";
+import { isEmpty } from "lodash";
+import { toast } from "react-toastify";
 
 const Form_validation = Yup.object().shape({
   name: Yup.string().required("name is Required"),
@@ -15,11 +17,11 @@ const Form_validation = Yup.object().shape({
   unloadingPoint: Yup.string().required("unloadingPoint is Required"),
   loadingTime: Yup.string().required("loadingTime is Required"),
   contactNumber: Yup.string().required("contactNumber is Required"),
-  // payment: Yup.string().required("payment is Required"),
-  // truckBody: Yup.string().required("truckBody is Required"),
-  // truckCapacity: Yup.string().required("truckCapacity is Required"),
-  truckWheel: Yup.string().required("truckCapacityOfWheel is Required"),
-  // truckNumber: Yup.string().required("truckNumber is Required"),
+  payment: Yup.string().required("payment is Required"),
+  truckBody: Yup.string().required("truckBody is Required"),
+  truckCapacity: Yup.string().required("truckCapacity is Required"),
+  truckWheelFeet: Yup.string().required("truckCapacityOfWheel is Required"),
+  truckNumber: Yup.string().required("truckNumber is Required"),
   goodTransport: Yup.string().required("goodTransport is Required"),
   additionalInfo: Yup.string().required("additionalInfo is Required"),
   approximateWeight: Yup.string().required(
@@ -33,6 +35,11 @@ const Form_validation = Yup.object().shape({
 });
 function NewLoad() {
   const [selectedOption, setSelectedOption] = useState<any>("");
+  const [truckBody, setTruckBody] = useState<any>("");
+  const [truckCapacity, setTruckCapacity] = useState<any>("");
+  const [truckFeet, setTruckFeet] = useState<any>("");
+  const [truckNumber, setTruckNumber] = useState<any>("");
+  const [paymentMethods, setPaymentMethods] = useState<any>("");
   const [post, setPost] = useState<any>("");
 
   const counterList = [
@@ -71,33 +78,58 @@ function NewLoad() {
       .post(baseURL, {
         shipperId: "1",
         shipperName: "1",
-        panNumber: val.panNumber,
+        panNumber: val.pan,
         address: val.address,
         loadingPoint: val.loadingPoint,
         loadingDateTime: val.loadingTime,
-        unLoadingPoint: val.unLoadingpoint,
+        unLoadingPoint: val.unloadingPoint,
         estimatedDistance: "10",
         contactNumber: val.contactNumber,
         contactName: val.contactName,
-        truckBody: val.truckBody,
-        truckCapacity: val.truckCapacity,
-        truckCapacityOfWheel: val.truckWheel,
-        truckNumber: val.truckNumber,
+        truckBody: truckBody.value,
+        truckCapacity: truckCapacity.value,
+        truckCapacityOfWheel: truckFeet.value,
+        truckNumber: truckNumber.value,
         goodsToTransfer: val.goodTransport,
         additionalInfo: val.additionalInfo,
         approximateWeightInTons: val.approximateWeight,
         proposedRatePerTruck: val.proposedRate,
-        paymentMethod: val.payment,
+        paymentMethod: paymentMethods.value,
         minAdvance: "100",
-        userId: "1",
+        userId: "",
         agentId: "11",
         status: "active",
       })
       .then((response) => {
         setPost(response.data);
       });
+      toast.success(post?.message);
+      handleReset()
   };
-  
+  const [selectRef, setSelectRef] = useState<any>(null);
+  const [selectRef1, setSelectRef1] = useState<any>(null);
+  const [selectRef2, setSelectRef2] = useState<any>(null);
+  const [selectRef3, setSelectRef3] = useState<any>(null);
+  const [selectRef4, setSelectRef4] = useState<any>(null);
+  const clearValue = () => {
+    selectRef.clearValue();
+    selectRef1.clearValue();
+    selectRef2.clearValue();
+    selectRef3.clearValue();
+    selectRef4.clearValue();
+  };
+
+  const handleReset = () => {
+    clearValue()
+    
+    setPaymentMethods("");
+    const input = document.getElementsByTagName("input");
+    for (let i = 0; i < input.length; i++) {
+      input[i].value = "";
+      input[3].value = "";
+    }
+  };
+
   return (
     <MainLayout>
       <Formik
@@ -105,9 +137,8 @@ function NewLoad() {
         validationSchema={Form_validation}
         onSubmit={createPost}
       >
-        {({ isSubmitting, values, setFieldValue, errors, touched }: any) => (
+        {({ isSubmitting, values, resetForm, errors, touched }: any) => (
           <>
-            {console.log(errors)}
             <Form className="p-10">
               <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
                 Loading Details
@@ -179,19 +210,28 @@ function NewLoad() {
                     options={counterList}
                     placeholder="Choose an Option"
                     name="truckBody"
+                    onChange={(e: any) => setTruckBody(e)}
+                    ref={(ref) => {
+                      setSelectRef(ref);
+                    }}
+      
                   />
-                  {touched.truckBody && errors.truckBody ? (
+                  {isEmpty(truckBody) &&
+                  touched.truckBody &&
+                  errors.truckBody ? (
                     <div className="input__error__icon mt-1">
                       <RiErrorWarningFill />
                     </div>
                   ) : (
                     ""
                   )}
-                  <ErrorMessage
-                    component="div"
-                    name="truckBody"
-                    className="input__error__container mb-3"
-                  />
+                  {isEmpty(truckBody) && (
+                    <ErrorMessage
+                      component="div"
+                      name="truckBody"
+                      className="input__error__container mb-3"
+                    />
+                  )}
                 </div>
                 <div>
                   {" "}
@@ -202,19 +242,27 @@ function NewLoad() {
                     options={counterList}
                     placeholder="Choose an Option"
                     name="truckCapacity"
+                    onChange={(e) => setTruckCapacity(e)}
+                    ref={(ref) => {
+                      setSelectRef1(ref);
+                    }}
                   />
-                  {touched.truckCapacity && errors.truckCapacity ? (
-                    <div className="input__error__icon mt-1">
-                      <RiErrorWarningFill />
-                    </div>
-                  ) : (
-                    ""
+                  {isEmpty(truckCapacity) && (
+                    <>
+                      {touched.truckCapacity && errors.truckCapacity ? (
+                        <div className="input__error__icon mt-1">
+                          <RiErrorWarningFill />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <ErrorMessage
+                        component="div"
+                        name="truckCapacity"
+                        className="input__error__container mb-3"
+                      />
+                    </>
                   )}
-                  <ErrorMessage
-                    component="div"
-                    name="truckCapacity"
-                    className="input__error__container mb-3"
-                  />
                 </div>
                 <div>
                   {" "}
@@ -224,20 +272,28 @@ function NewLoad() {
                   <Select
                     options={counterList}
                     placeholder="Choose an Option"
-                    name="truckWheel"
+                    name="truckWheelFeet"
+                    onChange={(e) => setTruckFeet(e)}
+                    ref={(ref) => {
+                      setSelectRef2(ref);
+                    }}
                   />
-                  {touched.truckWheel && errors.truckWheel ? (
-                    <div className="input__error__icon mt-1">
-                      <RiErrorWarningFill />
-                    </div>
-                  ) : (
-                    ""
+                  {isEmpty(truckFeet) && (
+                    <>
+                      {touched.truckWheelFeet && errors.truckWheelFeet ? (
+                        <div className="input__error__icon mt-1">
+                          <RiErrorWarningFill />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <ErrorMessage
+                        component="div"
+                        name="truckWheelFeet"
+                        className="input__error__container mb-3"
+                      />
+                    </>
                   )}
-                  <ErrorMessage
-                    component="div"
-                    name="truckWheel"
-                    className="input__error__container mb-3"
-                  />
                 </div>
                 <div className="my-4">
                   {" "}
@@ -248,19 +304,27 @@ function NewLoad() {
                     options={counterList}
                     placeholder="Choose an Option"
                     name="truckNumber"
+                    onChange={(e) => setTruckNumber(e)}
+                    ref={(ref) => {
+                      setSelectRef3(ref);
+                    }}
                   />
-                  {touched.truckNumber && errors.truckNumber ? (
-                    <div className="input__error__icon mt-1">
-                      <RiErrorWarningFill />
-                    </div>
-                  ) : (
-                    ""
+                  {isEmpty(truckNumber) && (
+                    <>
+                      {touched.truckNumber && errors.truckNumber ? (
+                        <div className="input__error__icon mt-1">
+                          <RiErrorWarningFill />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <ErrorMessage
+                        component="div"
+                        name="truckNumber"
+                        className="input__error__container mb-3"
+                      />
+                    </>
                   )}
-                  <ErrorMessage
-                    component="div"
-                    name="truckNumber"
-                    className="input__error__container mb-3"
-                  />
                 </div>
               </div>
               <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
@@ -319,19 +383,27 @@ function NewLoad() {
                     options={counterList}
                     placeholder="Choose an Option"
                     name="payment"
+                    onChange={(e: any) => setPaymentMethods(e)}
+                    ref={(ref) => {
+                      setSelectRef4(ref);
+                    }}
                   />
-                  {touched.payment && errors.payment ? (
-                    <div className="input__error__icon mt-1">
-                      <RiErrorWarningFill />
-                    </div>
-                  ) : (
-                    ""
+                  {isEmpty(paymentMethods) && (
+                    <>
+                      {touched.payment && errors.payment ? (
+                        <div className="input__error__icon mt-1">
+                          <RiErrorWarningFill />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <ErrorMessage
+                        component="div"
+                        name="payment"
+                        className="input__error__container mb-3"
+                      />
+                    </>
                   )}
-                  <ErrorMessage
-                    component="div"
-                    name="payment"
-                    className="input__error__container mb-3"
-                  />
                 </div>
               </div>
               <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
@@ -382,7 +454,14 @@ function NewLoad() {
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-x-4 mt-8">
-                <button className="border-2 text-gray-700">Clear</button>
+                <button
+                  className="border-2 text-gray-700"
+                  onClick={() => {
+                    handleReset();
+                  }}
+                >
+                  Clear
+                </button>
                 <button
                   type="submit"
                   onClick={() => createPost(values)}

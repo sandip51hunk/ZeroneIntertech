@@ -32,6 +32,23 @@ const RouteObj = [
   },
   //dashboard routes
 
+//terms & condition
+{
+  path: "/terms-conditions",
+  component: TermsConditions,
+},
+{
+  path: "/privacy-policies",
+  component: PrivacyPolicies,
+},
+{
+  path: "/faqs",
+  component: FAQs,
+},
+];
+
+export const dashboardRoutes = [
+
   {
     path: "/dashboard",
     component: Dashboard,
@@ -82,19 +99,7 @@ const RouteObj = [
   path: "/support",
   component: Support,
 },
-//terms & condition
-{
-  path: "/terms-conditions",
-  component: TermsConditions,
-},
-{
-  path: "/privacy-policies",
-  component: PrivacyPolicies,
-},
-{
-  path: "/faqs",
-  component: FAQs,
-},
-];
+]
+
 
 export default RouteObj;
