@@ -2,14 +2,27 @@ import React from "react";
 import { AiFillCaretDown, AiOutlineBell, AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import MainLayout from "../../../container/dashboardLayout";
+import { LogoutAction } from "../../../redux/action/auth.action";
 
 const NavBar = () => {
   const [displayBlock, setDisplayBlock] = React.useState<any>(false);
   const [notificationBlock, setNotificationBlock] = React.useState<any>(false);
-  const navigate = useNavigate();
   const routes = window.location.pathname;
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    dispatch(LogoutAction())
+    navigate('/login')
+    toast.success("Logout Successfully")
+
+  }
+
 
   return (
     <div className={"navbar__container"}>
@@ -115,7 +128,7 @@ const NavBar = () => {
             <hr />
             <div
               className="navbar__dropdown-list mt-3 flex"
-              onClick={() => navigate("/")}
+              onClick={handleSignOut}
             >
               <span className=" mx-2">
                 <FiLogOut size={20} />

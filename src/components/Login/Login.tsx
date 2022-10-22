@@ -32,10 +32,10 @@ export const Login = () => {
     toast.success("Login Successfully");
     navigate("/dashboard");
   }
-  else{
-
+  if(authError){
     toast.error(authError);
   }
+
 
   let Logo = require("../../assets/images/loginImage.png");
 

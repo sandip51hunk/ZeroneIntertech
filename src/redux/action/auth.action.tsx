@@ -15,7 +15,7 @@ export const authAction: any = (user: any) => {
 	return async (dispatch: any) => {
 		try {
 			const res = await axiosConfig.post('/admin-auth/login', user);
-			const accessToken = res.data.data.token;
+			const accessToken = res.data.access_token;
 			window.sessionStorage.setItem('accessToken', res.data.access_token);
 			dispatch({
 				type: authConstant.LOGIN_SUCCESS,
