@@ -71,11 +71,12 @@ function NewLoad() {
     address: "",
     payment: "",
   };
-  const baseURL = "http://159.203.180.7:3000/api/loads";
+  const baseURL= window.__RUNTIME_CONFIG__.REACT_LOAD_NEPAL_API
+  
 
   const createPost = (val: any) => {
     axios
-      .post(baseURL, {
+      .post(baseURL + '/load', {
         shipperId: "1",
         shipperName: "1",
         panNumber: val.pan,

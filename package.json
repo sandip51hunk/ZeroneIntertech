@@ -14,6 +14,7 @@
     "@types/react-select": "^5.0.1",
     "axios": "^1.1.2",
     "chart.js": "^3.9.1",
+    "cross-env": "^7.0.3",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
@@ -29,13 +30,14 @@
     "react-toastify": "^9.0.8",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "runtime-env-cra": "^0.2.4",
     "styled-components": "^5.3.5",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_ENV=development runtime-env-cra --config-name=./public/runtime-env.js && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

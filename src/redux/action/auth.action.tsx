@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const axiosConfig = axios.create({
-	baseURL: 'http://159.203.180.7:3000/api'
+	baseURL: window.__RUNTIME_CONFIG__.REACT_LOAD_NEPAL_API
 	,
 	headers: {
 		'cache-control': 'no-cache',
