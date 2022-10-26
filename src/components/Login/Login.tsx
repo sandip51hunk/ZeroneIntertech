@@ -36,7 +36,6 @@ export const Login = () => {
     toast.error(authError);
   }
 
-
   let Logo = require("../../assets/images/loginImage.png");
 
   return (

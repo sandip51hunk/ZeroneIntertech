@@ -33,7 +33,10 @@ const Form_validation = Yup.object().shape({
     .min(6, "Name must be atleat 6 character long.")
     .required(" Password is Required"),
 });
-function NewLoad() {
+const  NewLoad = () => {
+  const baseURL= window.__RUNTIME_CONFIG__.REACT_LOAD_NEPAL_API
+
+
   const [selectedOption, setSelectedOption] = useState<any>("");
   const [truckBody, setTruckBody] = useState<any>("");
   const [truckCapacity, setTruckCapacity] = useState<any>("");
@@ -71,7 +74,6 @@ function NewLoad() {
     address: "",
     payment: "",
   };
-  const baseURL= window.__RUNTIME_CONFIG__.REACT_LOAD_NEPAL_API
   
 
   const createPost = (val: any) => {
@@ -107,6 +109,17 @@ function NewLoad() {
       toast.success(post?.message);
       handleReset()
   };
+  const getTons = () => {
+    axios
+      .get(baseURL + '/tons')
+      .then((response) => {
+        setPost(response.data);
+      });
+  };
+
+  useEffect(()=>{
+    getTons()
+  },[])
   const [selectRef, setSelectRef] = useState<any>(null);
   const [selectRef1, setSelectRef1] = useState<any>(null);
   const [selectRef2, setSelectRef2] = useState<any>(null);

@@ -10,11 +10,10 @@ const axiosConfig = axios.create({
 		'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
 	},
 });
-
 export const authAction: any = (user: any) => {
 	return async (dispatch: any) => {
 		try {
-			const res = await axiosConfig.post('/admin-auth/login', user);
+			const res = await axiosConfig.post('/shipper-auth/login', user);
 			const accessToken = res.data.access_token;
 			window.sessionStorage.setItem('accessToken', res.data.access_token);
 			dispatch({

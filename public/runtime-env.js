@@ -1,1 +1,1 @@
-window.__RUNTIME_CONFIG__ = {"REACT_LOAD_NEPAL_API ":" http://159.203.180.7:3000/api","NODE_ENV":"development"};
+window.__RUNTIME_CONFIG__ = {"REACT_LOAD_NEPAL_API":"https://vabisya.com/api","NODE_ENV":"development"};
