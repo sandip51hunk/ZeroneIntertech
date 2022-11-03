@@ -4,7 +4,7 @@ function Footer() {
   let Logo = require("../../../assets/images/mainImage.png");
 
   return (
-    <footer className="text-gray-600 body-font">
+    <footer className="text-gray-600 font-body">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
@@ -15,9 +15,7 @@ function Footer() {
             </span>
           </a>
           <nav className="list-none mt-3 mb-10">
-            <h1 className="title-font font-medium text-gray-900">
-              LoadNepal
-            </h1>
+            <h1 className="title-font font-medium text-gray-900">LoadNepal</h1>
             <li>
               <a className="text-gray-600 hover:text-gray-800">
                 Butwal-8 Ruphendihi, Nepal

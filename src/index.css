@@ -1,89 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Thin.ttf);
-	font-style: normal;
-	font-weight: 100;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Light.ttf);
-	font-style: normal;
-	font-weight: 300;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Regular.ttf);
-	font-style: normal;
-	font-weight: 400;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Medium.ttf);
-	font-style: normal;
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-SemiBold.ttf);
-	font-style: normal;
-	font-weight: 600;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Bold.ttf);
-	font-style: normal;
-	font-weight: 700;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-ExtraBold.ttf);
-	font-style: normal;
-	font-weight: 800;
-}
-@font-face {
-	font-family: "Inter";
-	src: url(./assets/fonts/Inter-Black.ttf);
-	font-style: normal;
-	font-weight: 900;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 * {
-	font-family: "Inter", sans-serif;
-	/* overflow: auto; */
+  font-family: "Inter", sans-serif;
+  /* overflow: auto; */
 }
-.intro{
-  background: linear-gradient(180deg, #E9EDFB 0%, rgba(233, 237, 251, 0) 100%);
+.intro {
+  background: linear-gradient(180deg, #e9edfb 0%, rgba(233, 237, 251, 0) 100%);
 }
-.about-us{
-  background: #F6F7FB;
+.about-us {
+  background: #f6f7fb;
 }
-.network{
-  background: #E9EDFB;
+.network {
+  background: #e9edfb;
 }
-footer{
-  background: #F6F7FB;
+footer {
+  background: #f6f7fb;
 }
-.app-store{
-  background: #FDEDED;
-}
-
-.padding-all{
-  padding:"120px"
+.app-store {
+  background: #fdeded;
 }
 
+.padding-all {
+  padding: "120px";
+}
 
 /* Carrier */
-.carrier_reason{
-
-background: #F6F7FB;
-border-radius: 8px;
+.carrier_reason {
+  background: #f6f7fb;
+  border-radius: 8px;
 }
 
-
 /* ABout us */
-.about__image{
+.about__image {
   position: relative;
   bottom: 200px;
 }

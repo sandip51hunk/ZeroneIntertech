@@ -7,7 +7,7 @@ export const Login = () => {
   return (
     <>
       <Header />
-      <section className="text-gray-600 body-font relative">
+      <section className="text-gray-600 font-body relative font-body">
         <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
           <img src={Logo} alt="" />
           <div className="">

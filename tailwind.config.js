@@ -6,6 +6,9 @@ module.exports = {
       'secondary': '#EC4A47',
     },
     extend: {},
+    fontFamily:{
+      body:['Roboto']
+    }
   },
   plugins: [],
 }
