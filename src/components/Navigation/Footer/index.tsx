@@ -15,9 +15,7 @@ function Footer() {
             </span>
           </a>
           <nav className="list-none mt-3 mb-10">
-            <h1 className="title-font font-medium text-gray-900">
-              LoadNepal
-            </h1>
+            <h1 className="title-font font-medium text-gray-900">LoadNepal</h1>
             <li>
               <a className="text-gray-600 hover:text-gray-800">
                 Butwal-8 Ruphendihi, Nepal

@@ -5,7 +5,7 @@ function Intro() {
   let Logo = require("../../../assets/images/Group.png");
 
   return (
-    <section className="text-gray-600 body-font intro">
+    <section className="text-gray-600 font-body intro">
       <Header/>
       <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
         <div className="text-center lg:w-2/3 w-full">

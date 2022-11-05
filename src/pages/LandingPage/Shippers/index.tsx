@@ -4,16 +4,18 @@ function index() {
   let Logo = require("../../../assets/images/shippers.png");
   let Logo1 = require("../../../assets/images/carrier.png");
   return (
-    <div className="padding-all">
+    <div className="padding-all font-body">
       <div className="mx-auto px-10 mb-8">
         <img alt="blog" src={Logo} style={{ width: "100%" }} />
       </div>
-      <h1 id='shippers' className="title-font sm:text-4xl text-3xl mb-4 text-center font-medium text-gray-900">
+      <h1
+        id="shippers"
+        className="title-font sm:text-4xl text-3xl mb-4 text-center font-medium text-gray-900"
+      >
         Why shippers choose LoadNepal?
       </h1>
       <div>
-       
-        <section  className="text-gray-600 body-font">
+        <section className="text-gray-600 font-body">
           <div className="container px-5 mx-auto">
             <div className="flex flex-wrap -mx-4 -my-8">
               <div className="py-8 px-4 lg:w-1/3 ">
@@ -82,7 +84,7 @@ function index() {
             </div>
           </div>
         </section>
-        <section className="text-gray-600 body-font">
+        <section className="text-gray-600 font-body">
           <div className="container px-5 mx-auto">
             <div className="flex flex-wrap -mx-4 -my-8">
               <div className="py-8 px-4 lg:w-1/3 ">
@@ -153,13 +155,16 @@ function index() {
         </section>
       </div>
       <div className="mx-auto px-10 mb-8">
-        <img alt="blog" src={Logo1} style={{ width: "100%" }} /> 
+        <img alt="blog" src={Logo1} style={{ width: "100%" }} />
       </div>
-      <h1 id='carriers' className="title-font sm:text-4xl text-3xl mb-4 text-center font-medium text-gray-900">
+      <h1
+        id="carriers"
+        className="title-font sm:text-4xl text-3xl mb-4 text-center font-medium text-gray-900"
+      >
         Why shippers choose LoadNepal?
       </h1>
       <div>
-        <section  className="text-gray-600 body-font">
+        <section className="text-gray-600 font-body">
           <div className="container px-5  mx-auto">
             <div className="flex flex-wrap justify-center -mx-4 -my-8">
               <div className="py-8 px-4 lg:w-1/3">
@@ -207,7 +212,7 @@ function index() {
             </div>
           </div>
         </section>
-        <section className="text-gray-600 body-font">
+        <section className="text-gray-600 font-body">
           <div className="container px-5  mx-auto">
             <div className="flex flex-wrap justify-center -mx-4 -my-8">
               <div className="py-8 px-4 lg:w-1/3">
@@ -255,7 +260,6 @@ function index() {
             </div>
           </div>
         </section>
-        
       </div>
     </div>
   );

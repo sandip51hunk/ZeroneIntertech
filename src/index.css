@@ -1,48 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+* {
+  font-family: "Inter", sans-serif;
+  /* overflow: auto; */
+}
+.intro {
+  background: linear-gradient(180deg, #e9edfb 0%, rgba(233, 237, 251, 0) 100%);
+}
+.about-us {
+  background: #f6f7fb;
+}
+.network {
+  background: #e9edfb;
+}
+footer {
+  background: #f6f7fb;
+}
+.app-store {
+  background: #fdeded;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.padding-all {
+  padding: "120px";
 }
-
-.intro{
-  background: linear-gradient(180deg, #E9EDFB 0%, rgba(233, 237, 251, 0) 100%);
-}
-.about-us{
-  background: #F6F7FB;
-}
-.network{
-  background: #E9EDFB;
-}
-footer{
-  background: #F6F7FB;
-}
-.app-store{
-  background: #FDEDED;
-}
-
-.padding-all{
-  padding:"120px"
-}
-
 
 /* Carrier */
-.carrier_reason{
-
-background: #F6F7FB;
-border-radius: 8px;
+.carrier_reason {
+  background: #f6f7fb;
+  border-radius: 8px;
 }
 
-
 /* ABout us */
-.about__image{
+.about__image {
   position: relative;
   bottom: 200px;
 }
